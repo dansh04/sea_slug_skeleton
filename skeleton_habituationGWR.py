@@ -16,13 +16,13 @@ import matplotlib.pyplot as plt
 ###############################
 # TODO: Set a variable called stv to 4, this will define 
 #        the weight of the connection from input to output
-# stv = 
-
+stv = 4
+dec = 0.8
 # TODO: set up an input pulse called pls
-# pls = 
+pls = 2
 
 # TODO: then create a list of 6 pulses, called x, to use for input
-# x = 
+x = [0, 1, 1, 1, 1, 1]
 
 v = stv # Set connection weight to start weight value
 
@@ -42,8 +42,12 @@ y = np.zeros((1,nTs)) # set up (define) a vector for the output time series
 #     describes how each input value in the vector x is 
 #     transformed to the output value in the vector y
 
-
-
+c = 0
+for t in x:
+    y[0][c] = t*v
+    if(t>0):
+        v = v*dec
+    c += 1
 ###############################
 # Plot the results
 ###############################
